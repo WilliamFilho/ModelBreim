@@ -7,9 +7,7 @@ package modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,8 +18,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
@@ -36,6 +34,7 @@ uniqueConstraints = {
 @Entity
 @Table(name = "agente_risco")
 public class AgenteRisco implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,7 +43,7 @@ public class AgenteRisco implements Serializable {
     @NotNull(message = "O nome não pode ser nulo")
     @NotBlank(message = "O campo não pode ser vazio")
     private String nome;
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "tipo_risco", referencedColumnName = "id", nullable = false)
     @NotNull(message = "Tipo deve ser informado")
     private TipoRisco tipoRisco;
@@ -54,17 +53,16 @@ public class AgenteRisco implements Serializable {
     @JoinTable(name = "exames_agente_risco",
             joinColumns = @JoinColumn(name = "agente_risco", referencedColumnName = "id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "exame", referencedColumnName = "id", nullable = false))
-    private Set<Exame> exames = new HashSet<>();
+    private List<Exame> exames = new ArrayList<>();
     @ManyToMany
     @JoinTable(name = "epi_agente_risco",
             joinColumns = @JoinColumn(name = "agente_risco", referencedColumnName = "id", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "epi", referencedColumnName = "id", nullable = false))
-    private Set<EPI> epis = new HashSet<>();
-    
-    
+    private List<EPI> epis = new ArrayList<>();
+
     public AgenteRisco() {
     }
-    
+
     public Integer getId() {
         return id;
     }
@@ -140,35 +138,32 @@ public class AgenteRisco implements Serializable {
         this.riscoEspecifico = riscoEspecifico;
     }
 
-   
-
-    /**
-     * @return the exames
-     */
-    public Set<Exame> getExames() {
-        return exames;
-    }
-
-    /**
-     * @param exames the exames to set
-     */
-    public void setExames(Set<Exame> exames) {
-        this.exames = exames;
-    }
-
     /**
      * @return the epis
      */
-    public Set<EPI> getEpis() {
+    public List<EPI> getEpis() {
         return epis;
     }
 
     /**
      * @param epis the epis to set
      */
-    public void setEpis(Set<EPI> epis) {
+    public void setEpis(List<EPI> epis) {
         this.epis = epis;
     }
 
-    
+    /**
+     * @return the exames
+     */
+    public List<Exame> getExames() {
+        return exames;
+    }
+
+    /**
+     * @param exames the exames to set
+     */
+    public void setExames(List<Exame> exames) {
+        this.exames = exames;
+    }
+
 }
