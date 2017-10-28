@@ -32,9 +32,10 @@ import util.TipoEmpresa;
 @Entity
 @Table(name = "filial")
 public class Filial implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name = "seq_filial", sequenceName = "seq_filial_id", allocationSize = 1)
-    @GeneratedValue(generator = "seq_filial", strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nome", length = 80)
     private String nome;

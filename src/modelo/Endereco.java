@@ -27,9 +27,10 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name = "endereco")
 public class Endereco implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name = "seq_endereco", sequenceName = "seq_endereco_id", allocationSize = 1)
-    @GeneratedValue(generator = "seq_endereco", strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotNull(message = "O apelido não pode ser nulo")
     @NotBlank(message = "O apelido não ser em branco")

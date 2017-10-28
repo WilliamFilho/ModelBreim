@@ -19,6 +19,8 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name = "permissao")
 public class Permissao implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @NotBlank(message = "O nome não pode ser em branco")
     @NotNull(message = "O nome não pode ser nulo")

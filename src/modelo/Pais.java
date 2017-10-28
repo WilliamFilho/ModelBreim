@@ -25,9 +25,10 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name = "pais")
 public class Pais implements Serializable{
+
+    private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name = "seq_pais", sequenceName = "seq_pais_id", allocationSize = 1)
-    @GeneratedValue(generator = "seq_pais", strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name="nome", nullable = false, length = 50)
     @Length(max = 50, message = "O Nome não pode ter mais que {max} caracteres")

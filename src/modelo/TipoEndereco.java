@@ -23,9 +23,10 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name = "tipo_endereco")
 public class TipoEndereco implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name = "seq_tipo_endereco", sequenceName = "seq_tipo_endereco_id", allocationSize = 1)
-    @GeneratedValue(generator = "seq_tipo_endereco", strategy = GenerationType.IDENTITY)    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    
     private Integer id;
     @NotBlank(message = "A descricao deve ser informada")
     @Length(max = 30, message = "A decricao não pode ter mais de {max} caracteres")

@@ -23,9 +23,11 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name = "area")
 public class Area implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+    
     @Id
-    @SequenceGenerator(name = "seq_area", sequenceName = "seq_area_id", allocationSize = 1)
-    @GeneratedValue(generator = "seq_area", strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nome", length = 60)
     @NotNull(message = "O nome deve ser informado") 

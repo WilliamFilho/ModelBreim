@@ -23,6 +23,8 @@ import javax.persistence.Table;
 @Table(name = "empresa")
 public class Empresa extends PessoaJuridica implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Column(name = "nome_fantasia", length = 80)
     private String nomeFantasia;
     @Column(name = "ramo_atividade", length = 50)

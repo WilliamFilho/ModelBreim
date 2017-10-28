@@ -32,6 +32,8 @@ import org.hibernate.validator.constraints.br.CPF;
 @Table(name = "pessoa_fisica")
 public class PessoaFisica extends Pessoa implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Length(max = 10, message = "O RG não pode ter mais que {max} caracteres")
     @NotBlank(message = "O RG deve ser informada")
     @NotNull(message = "O RG não pode ser nulo")

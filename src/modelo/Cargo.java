@@ -29,9 +29,10 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name="cargo")
 public class Cargo implements Serializable{
+
+    private static final long serialVersionUID = 1L;
     @Id
-    @SequenceGenerator(name = "seq_cargo", sequenceName = "seq_cargo_id", allocationSize = 1)
-    @GeneratedValue(generator = "seq_cargo", strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "cargo", length = 60, nullable = false)
     @NotNull(message = "O cargo não pode ser nulo")

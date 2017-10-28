@@ -22,10 +22,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name="cbo")
 public class Cbo implements Serializable{
+
+    private static final long serialVersionUID = 1L;
     
     @Id
-    @SequenceGenerator(name="seq_cbo", sequenceName = "seq_cbo_id", allocationSize = 1)
-    @GeneratedValue(generator = "seq_cbo", strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "descricao", nullable = false)
     private String descricao;

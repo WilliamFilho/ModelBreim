@@ -19,6 +19,8 @@ import org.hibernate.validator.constraints.br.CNPJ;
 @Table(name = "pessoa_juridica")
 public class PessoaJuridica extends Pessoa implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Length(max = 15, message = "A inscrição estadual deve possuir {max} caracteres.")
     @NotBlank(message = "Informe a incrição estadual")
     @NotNull(message = "A Inscrição estadual não pode ser nula")
