@@ -2,6 +2,26 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="ModelBreimPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>modelo.AgenteRisco</class>
+    <class>modelo.Area</class>
+    <class>modelo.Cargo</class>
+    <class>modelo.Cbo</class>
+    <class>modelo.Cidade</class>
+    <class>modelo.EPI</class>
+    <class>modelo.Empresa</class>
+    <class>modelo.Endereco</class>
+    <class>modelo.Estado</class>
+    <class>modelo.Exame</class>
+    <class>modelo.Filial</class>
+    <class>modelo.Funcao</class>
+    <class>modelo.Pais</class>
+    <class>modelo.Permissao</class>
+    <class>modelo.Pessoa</class>
+    <class>modelo.PessoaFisica</class>
+    <class>modelo.PessoaJuridica</class>
+    <class>modelo.RiscoEspecifico</class>
+    <class>modelo.TipoEndereco</class>
+    <class>modelo.TipoRisco</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dbace"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
